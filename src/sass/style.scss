@@ -1,0 +1,32 @@
+/**
+
+gulp-autoprefixer will generate
+vendor prefixes for
+the properties below
+
+**/
+
+.example {
+    display: flex;
+    transition: all .5s;
+}
+
+
+/**
+
+cssmin will merge the reused media
+queries seen below
+
+**/
+
+@media(min-width: 768px) {
+	.example {
+		color: red;
+	}
+}
+
+@media(min-width: 768px) {
+	.example {
+		background: blue;
+	}
+}
