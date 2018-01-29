@@ -23,7 +23,7 @@ Configuration
 const config = {
 	tasks: {
 		sass: {
-			src: './src/sass/*.scss',
+			src: './src/sass/**/*.scss',
 			dest: './dist/css',
 			fileSuffix: '.min'
 		},
