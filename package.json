@@ -11,5 +11,8 @@
   "bugs": {
     "url": "https://github.com/P1x3l5M4773r/gulp-boilerplate/issues"
   },
-  "homepage": "https://github.com/P1x3l5M4773r/gulp-boilerplate#readme"
+  "homepage": "https://github.com/P1x3l5M4773r/gulp-boilerplate#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
 }
