@@ -12,14 +12,30 @@ sass = require('gulp-sass');
 
 /**
 
+Configuration
+
+**/
+
+const config = {
+	tasks: {
+		sass: {
+			src: './src/sass/*.scss',
+			dest: './dist/css'
+		}
+	}
+}
+
+
+/**
+
 Compiles SASS
 
 **/
 
 gulp.task('sass', () => {
-	return gulp.src('./src/sass/*.scss')
+	return gulp.src(config.tasks.sass.src)
 	.pipe(sass())
-	.pipe(gulp.dest('./dist/css'));
+	.pipe(gulp.dest(config.tasks.sass.dest));
 });
 
 
