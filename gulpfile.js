@@ -7,7 +7,8 @@ Dependencies
 **/
 
 const gulp = require('gulp'),
-sass = require('gulp-sass');
+sass = require('gulp-sass'),
+autoprefixer = require('gulp-autoprefixer');
 
 
 /**
