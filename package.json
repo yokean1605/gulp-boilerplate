@@ -1,0 +1,15 @@
+{
+  "name": "gulp-boilerplate",
+  "version": "1.0.0",
+  "description": "A boilerplate config file for Gulp task runner",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/P1x3l5M4773r/gulp-boilerplate.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/P1x3l5M4773r/gulp-boilerplate/issues"
+  },
+  "homepage": "https://github.com/P1x3l5M4773r/gulp-boilerplate#readme"
+}
