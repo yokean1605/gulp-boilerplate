@@ -26,6 +26,9 @@ const config = {
 			src: './src/sass/*.scss',
 			dest: './dist/css',
 			fileSuffix: '.min'
+		},
+		cleanup: {
+			src: './dist/**/*'
 		}
 	}
 }
@@ -44,6 +47,17 @@ gulp.task('sass', () => {
 	.pipe(cssmin())
 	.pipe(rename({suffix: config.tasks.sass.fileSuffix}))
 	.pipe(gulp.dest(config.tasks.sass.dest));
+});
+
+
+/**
+
+Deletes contents of build folder
+
+**/
+
+gulp.task('cleanup', () => {
+    return del(config.tasks.cleanup.src, {force: true});
 });
 
 
