@@ -21,3 +21,14 @@ gulp.task('sass', () => {
 	.pipe(sass())
 	.pipe(gulp.dest('./dist/css'));
 });
+
+
+/**
+
+Tasks to run by default
+
+**/
+
+gulp.task('default', [
+	'sass'
+]);
