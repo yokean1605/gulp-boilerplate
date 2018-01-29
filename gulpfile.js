@@ -9,7 +9,8 @@ Dependencies
 const gulp = require('gulp'),
 sass = require('gulp-sass'),
 autoprefixer = require('gulp-autoprefixer'),
-cssmin = require('gulp-cssmin');
+cssmin = require('gulp-cssmin'),
+rename = require('gulp-rename');
 
 
 /**
