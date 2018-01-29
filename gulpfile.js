@@ -40,6 +40,7 @@ gulp.task('sass', () => {
 	.pipe(sass())
 	.pipe(autoprefixer())
 	.pipe(cssmin())
+	.pipe(rename({suffix: '.min'}))
 	.pipe(gulp.dest(config.tasks.sass.dest));
 });
 
