@@ -23,7 +23,8 @@ const config = {
 	tasks: {
 		sass: {
 			src: './src/sass/*.scss',
-			dest: './dist/css'
+			dest: './dist/css',
+			fileSuffix: '.min'
 		}
 	}
 }
@@ -40,7 +41,7 @@ gulp.task('sass', () => {
 	.pipe(sass())
 	.pipe(autoprefixer())
 	.pipe(cssmin())
-	.pipe(rename({suffix: '.min'}))
+	.pipe(rename({suffix: config.tasks.sass.fileSuffix}))
 	.pipe(gulp.dest(config.tasks.sass.dest));
 });
 
