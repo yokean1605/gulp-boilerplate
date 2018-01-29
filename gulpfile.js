@@ -29,13 +29,14 @@ const config = {
 
 /**
 
-Compiles SASS
+Compiles SASS to CSS with vendor prefixes
 
 **/
 
 gulp.task('sass', () => {
 	return gulp.src(config.tasks.sass.src)
 	.pipe(sass())
+	.pipe(autoprefixer())
 	.pipe(gulp.dest(config.tasks.sass.dest));
 });
 
