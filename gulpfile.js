@@ -30,7 +30,7 @@ const config = {
 
 /**
 
-Compiles SASS to CSS with vendor prefixes
+Compiles SASS to minified CSS with vendor prefixes
 
 **/
 
@@ -38,6 +38,7 @@ gulp.task('sass', () => {
 	return gulp.src(config.tasks.sass.src)
 	.pipe(sass())
 	.pipe(autoprefixer())
+	.pipe(cssmin())
 	.pipe(gulp.dest(config.tasks.sass.dest));
 });
 
