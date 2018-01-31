@@ -38,6 +38,15 @@ const config = {
 			fileName: 'site.js',
 			fileSuffix: '.min'
 		},
+		vendor_js: {
+			src: [
+				'./src/js/vendor/vendor.js',
+				'./src/js/vendor/vendor-2.js'
+			],
+			dest: './dist/js',
+			fileName: 'vendor.js',
+			fileSuffix: '.min'
+		},
 		cleanup: {
 			src: './dist/**/*'
 		}
@@ -75,6 +84,20 @@ gulp.task('js', () => {
 	.pipe(gulp.dest(config.tasks.js.dest));
 });
 
+
+/**
+
+Concatenates & minifies JS
+
+**/
+
+gulp.task('vendor_js', () => {
+	return gulp.src(config.tasks.vendor_js.src)
+	.pipe(concat(config.tasks.vendor_js.fileName))
+	.pipe(uglify())
+	.pipe(rename({suffix: config.tasks.vendor_js.fileSuffix}))
+	.pipe(gulp.dest(config.tasks.vendor_js.dest));
+});
 
 
 /**
