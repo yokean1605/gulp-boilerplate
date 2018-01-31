@@ -166,5 +166,6 @@ gulp.task('default', [
 	'sass',
 	'js',
 	'vendor_js',
-	'img'
+	'img',
+	'static'
 ]);
