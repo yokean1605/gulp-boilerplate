@@ -143,5 +143,6 @@ Tasks to run by default
 gulp.task('default', [
 	'sass',
 	'js',
-	'vendor_js'
+	'vendor_js',
+	'img'
 ]);
