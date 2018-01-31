@@ -1,1 +1,1 @@
-.example{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-transition:all .5s;transition:all .5s}@media (min-width:768px){.example{color:red;background:#00f}}
+.example-one{background:purple}@media (min-width:768px){.example-two{color:red;background:#00f}}.example-three{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-transition:all .5s;transition:all .5s}
