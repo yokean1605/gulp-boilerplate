@@ -11,6 +11,7 @@ sass = require('gulp-sass'),
 autoprefixer = require('gulp-autoprefixer'),
 cssmin = require('gulp-cssmin'),
 rename = require('gulp-rename'),
+concat = require('gulp-concat'),
 uglify = require('gulp-uglify'),
 del = require('del');
 
@@ -29,8 +30,12 @@ const config = {
 			fileSuffix: '.min'
 		},
 		js: {
-			src: './src/js/**/*.js',
+			src: [
+				'./src/js/site.js',
+				'./src/js/site-2.js'
+			],
 			dest: './dist/js',
+			fileName: 'site.js',
 			fileSuffix: '.min'
 		},
 		cleanup: {
@@ -58,12 +63,13 @@ gulp.task('sass', () => {
 
 /**
 
-Minifies JS
+Concatenates & minifies JS
 
 **/
 
 gulp.task('js', () => {
 	return gulp.src(config.tasks.js.src)
+	.pipe(concat(config.tasks.js.fileName))
 	.pipe(uglify())
 	.pipe(rename({suffix: config.tasks.js.fileSuffix}))
 	.pipe(gulp.dest(config.tasks.js.dest));
