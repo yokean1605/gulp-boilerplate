@@ -79,10 +79,6 @@ gulp.task('sass', () => {
 	.pipe(autoprefixer())
 	.pipe(cssmin())
 	.pipe(rename({suffix: config.tasks.sass.fileSuffix}))
-	.pipe(notify({
-		title: 'sass task complete',
-		message: ' '
-	}))
 	.pipe(gulp.dest(config.tasks.sass.dest));
 });
 
