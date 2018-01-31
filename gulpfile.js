@@ -167,3 +167,19 @@ gulp.task('default', [
 	'img',
 	'static'
 ]);
+
+
+/**
+
+Watches dirs & runs relevant
+tasks
+
+**/
+
+gulp.task('watch', () => {
+	gulp.watch(config.tasks.sass.src, ['sass']);
+	gulp.watch(config.tasks.js.src, ['js']);
+	gulp.watch(config.tasks.vendor_js.src, ['vendor_js']);
+	gulp.watch(config.tasks.img.src, ['img']);
+	gulp.watch(config.tasks.static.src, ['static']);
+})
