@@ -89,5 +89,6 @@ Tasks to run by default
 **/
 
 gulp.task('default', [
-	'sass'
+	'sass',
+	'js'
 ]);
