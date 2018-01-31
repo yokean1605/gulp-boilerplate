@@ -11,6 +11,7 @@ sass = require('gulp-sass'),
 autoprefixer = require('gulp-autoprefixer'),
 cssmin = require('gulp-cssmin'),
 rename = require('gulp-rename'),
+uglify = require('gulp-uglify'),
 del = require('del');
 
 
@@ -25,6 +26,11 @@ const config = {
 		sass: {
 			src: './src/sass/**/*.scss',
 			dest: './dist/css',
+			fileSuffix: '.min'
+		},
+		js: {
+			src: './src/js/**/*.js',
+			dest: './dist/js',
 			fileSuffix: '.min'
 		},
 		cleanup: {
@@ -48,6 +54,21 @@ gulp.task('sass', () => {
 	.pipe(rename({suffix: config.tasks.sass.fileSuffix}))
 	.pipe(gulp.dest(config.tasks.sass.dest));
 });
+
+
+/**
+
+Minifies JS
+
+**/
+
+gulp.task('js', () => {
+	return gulp.src(config.tasks.js.src)
+	.pipe(uglify())
+	.pipe(rename({suffix: config.tasks.js.fileSuffix}))
+	.pipe(gulp.dest(config.tasks.js.dest));
+});
+
 
 
 /**

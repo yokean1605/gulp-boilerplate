@@ -1,32 +1,45 @@
 /**
 
-gulp-autoprefixer will generate
-vendor prefixes for
-the properties below
+gulp-cssmin will remove all whitespace
 
 **/
 
-.example {
-    display: flex;
-    transition: all .5s;
+.example-one {
+
+	background: purple;
+
 }
 
 
 /**
 
-cssmin will merge the reused media
-queries seen below
+Also, gulp-cssmin will merge the reused 
+media queries seen below
 
 **/
 
 @media(min-width: 768px) {
-	.example {
+	.example-two {
 		color: red;
 	}
 }
 
 @media(min-width: 768px) {
-	.example {
+	.example-two {
 		background: blue;
 	}
+}
+
+
+/**
+
+And gulp-autoprefixer will generate
+vendor prefixes for
+the properties below
+
+**/
+
+.example-three {
+    display: flex;
+    transition: all .5s;
 }
