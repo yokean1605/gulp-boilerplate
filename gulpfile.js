@@ -87,7 +87,7 @@ gulp.task('js', () => {
 
 /**
 
-Concatenates & minifies JS
+Concatenates & minifies vendor JS
 
 **/
 
@@ -119,5 +119,6 @@ Tasks to run by default
 
 gulp.task('default', [
 	'sass',
-	'js'
+	'js',
+	'vendor_js'
 ]);
