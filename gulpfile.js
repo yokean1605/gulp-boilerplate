@@ -66,6 +66,23 @@ const config = {
 	}
 }
 
+/**
+
+Shows a desktop notification
+detailing any errors caught
+by gulp-plumber
+
+**/
+
+const handleError = function(err) {
+	notify.onError({
+		title: 'Gulp',
+		message: err.message,
+		file: err.file
+	})(err);
+	this.emit('end');
+}
+
 
 /**
 
@@ -75,7 +92,7 @@ Compiles SASS to minified CSS with vendor prefixes
 
 gulp.task('sass', () => {
 	return gulp.src(config.tasks.sass.src)
-	.pipe(plumber())
+	.pipe(plumber({errorHandler: handleError}))
 	.pipe(sass())
 	.pipe(autoprefixer())
 	.pipe(cssmin())
@@ -92,7 +109,7 @@ Concatenates & minifies JS
 
 gulp.task('js', () => {
 	return gulp.src(config.tasks.js.src)
-	.pipe(plumber())
+	.pipe(plumber({errorHandler: handleError}))
 	.pipe(concat(config.tasks.js.fileName))
 	.pipe(uglify())
 	.pipe(rename({suffix: config.tasks.js.fileSuffix}))
@@ -108,7 +125,7 @@ Concatenates & minifies vendor JS
 
 gulp.task('vendor_js', () => {
 	return gulp.src(config.tasks.vendor_js.src)
-	.pipe(plumber())
+	.pipe(plumber({errorHandler: handleError}))
 	.pipe(concat(config.tasks.vendor_js.fileName))
 	.pipe(uglify())
 	.pipe(rename({suffix: config.tasks.vendor_js.fileSuffix}))
@@ -124,7 +141,7 @@ Compresses imagery
 
 gulp.task('img', () => {
     return gulp.src(config.tasks.img.src)
-    .pipe(plumber())
+    .pipe(plumber({errorHandler: handleError}))
     .pipe(imagemin({
     	progressive: true, 
     	interlaced: true, 
@@ -144,7 +161,7 @@ build folder
 
 gulp.task('static', () => {
 	return gulp.src(config.tasks.static.src)
-	.pipe(plumber())
+	.pipe(plumber({errorHandler: handleError}))
 	.pipe(gulp.dest(config.tasks.static.dest));
 });
 
