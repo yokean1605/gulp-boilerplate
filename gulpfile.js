@@ -7,6 +7,7 @@ Dependencies
 **/
 
 const gulp = require('gulp'),
+plumber = require('gulp-plumber'),
 sass = require('gulp-sass'),
 autoprefixer = require('gulp-autoprefixer'),
 cssmin = require('gulp-cssmin'),
@@ -64,6 +65,8 @@ const config = {
 	}
 }
 
+const notify = require('gulp-notify');
+
 
 /**
 
@@ -77,6 +80,10 @@ gulp.task('sass', () => {
 	.pipe(autoprefixer())
 	.pipe(cssmin())
 	.pipe(rename({suffix: config.tasks.sass.fileSuffix}))
+	.pipe(notify({
+		title: 'sass task complete',
+		message: ' '
+	}))
 	.pipe(gulp.dest(config.tasks.sass.dest));
 });
 
