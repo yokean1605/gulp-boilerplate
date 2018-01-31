@@ -53,10 +53,10 @@ const config = {
 			dest: './dist/img'
 		},
 		static: {
-			docs: {
-				src: './src/docs/**/*',
-				'dest': './dist/docs'
-			}
+			src: [
+				'./src/static/**/*'
+			],
+			'dest': './dist/static'
 		},
 		cleanup: {
 			src: './dist/**/*'
@@ -137,10 +137,8 @@ build folder
 **/
 
 gulp.task('static', () => {
-	return Object.keys(config.tasks.static).forEach(function(key) {
-		gulp.src(config.tasks.static[key].src)
-		.pipe(gulp.dest(config.tasks.static[key].dest));
-	});
+	return gulp.src(config.tasks.static.src)
+	.pipe(gulp.dest(config.tasks.static.dest));
 });
 
 
