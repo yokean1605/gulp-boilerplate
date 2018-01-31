@@ -13,6 +13,7 @@ cssmin = require('gulp-cssmin'),
 rename = require('gulp-rename'),
 concat = require('gulp-concat'),
 uglify = require('gulp-uglify'),
+imagemin = require('gulp-imagemin'),
 del = require('del');
 
 
@@ -46,6 +47,10 @@ const config = {
 			dest: './dist/js',
 			fileName: 'vendor.js',
 			fileSuffix: '.min'
+		},
+		img: {
+			src: './src/img/**/*',
+			dest: './dist/img'
 		},
 		cleanup: {
 			src: './dist/**/*'
@@ -97,6 +102,24 @@ gulp.task('vendor_js', () => {
 	.pipe(uglify())
 	.pipe(rename({suffix: config.tasks.vendor_js.fileSuffix}))
 	.pipe(gulp.dest(config.tasks.vendor_js.dest));
+});
+
+
+/**
+
+Compresses imagery
+
+**/
+
+gulp.task('img', () => {
+    return gulp.src(config.tasks.img.src)
+    .pipe(imagemin({
+    	progressive: true, 
+    	interlaced: true, 
+    	optimizationLevel: 7,
+    	verbose: true
+    }))
+    .pipe(gulp.dest(config.tasks.img.dest));
 });
 
 
