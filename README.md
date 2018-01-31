@@ -15,8 +15,6 @@ The boilerplate requires you install the dependencies listed below.
 4. `gulp` or `gulp watch`
 
 ## Tasks Included
-The boilerplate requires you install the dependencies listed below.
-
 - sass - Compiles SASS into minified CSS with vendor prefixes
 - js - Concatenates & minifies JS
 - vendor_js - Concatenates & minifies vendor JS
