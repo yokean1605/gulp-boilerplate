@@ -8,6 +8,7 @@ Dependencies
 
 const gulp = require('gulp'),
 plumber = require('gulp-plumber'),
+notify = require('gulp-notify'),
 sass = require('gulp-sass'),
 autoprefixer = require('gulp-autoprefixer'),
 cssmin = require('gulp-cssmin'),
