@@ -52,6 +52,12 @@ const config = {
 			src: './src/img/**/*',
 			dest: './dist/img'
 		},
+		static: {
+			docs: {
+				src: './src/docs/**/*',
+				'dest': './dist/docs'
+			}
+		},
 		cleanup: {
 			src: './dist/**/*'
 		}
@@ -121,6 +127,22 @@ gulp.task('img', () => {
     }))
     .pipe(gulp.dest(config.tasks.img.dest));
 });
+
+
+/**
+
+Moves static files to the
+build folder
+
+**/
+
+gulp.task('static', () => {
+	return Object.keys(config.tasks.static).forEach(function(key) {
+		gulp.src(config.tasks.static[key].src)
+		.pipe(gulp.dest(config.tasks.static[key].dest));
+	});
+});
+
 
 
 /**
