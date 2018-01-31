@@ -65,8 +65,6 @@ const config = {
 	}
 }
 
-const notify = require('gulp-notify');
-
 
 /**
 
@@ -76,6 +74,7 @@ Compiles SASS to minified CSS with vendor prefixes
 
 gulp.task('sass', () => {
 	return gulp.src(config.tasks.sass.src)
+	.pipe(plumber())
 	.pipe(sass())
 	.pipe(autoprefixer())
 	.pipe(cssmin())
@@ -96,6 +95,7 @@ Concatenates & minifies JS
 
 gulp.task('js', () => {
 	return gulp.src(config.tasks.js.src)
+	.pipe(plumber())
 	.pipe(concat(config.tasks.js.fileName))
 	.pipe(uglify())
 	.pipe(rename({suffix: config.tasks.js.fileSuffix}))
@@ -111,6 +111,7 @@ Concatenates & minifies vendor JS
 
 gulp.task('vendor_js', () => {
 	return gulp.src(config.tasks.vendor_js.src)
+	.pipe(plumber())
 	.pipe(concat(config.tasks.vendor_js.fileName))
 	.pipe(uglify())
 	.pipe(rename({suffix: config.tasks.vendor_js.fileSuffix}))
@@ -126,6 +127,7 @@ Compresses imagery
 
 gulp.task('img', () => {
     return gulp.src(config.tasks.img.src)
+    .pipe(plumber())
     .pipe(imagemin({
     	progressive: true, 
     	interlaced: true, 
@@ -145,6 +147,7 @@ build folder
 
 gulp.task('static', () => {
 	return gulp.src(config.tasks.static.src)
+	.pipe(plumber())
 	.pipe(gulp.dest(config.tasks.static.dest));
 });
 
