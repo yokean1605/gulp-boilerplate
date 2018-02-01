@@ -104,32 +104,38 @@ gulp.task('sass', () => {
 
 /**
 
-Concatenates & minifies JS
+Concatenates + minifies JS
+& generates sourcemaps
 
 **/
 
 gulp.task('js', () => {
 	return gulp.src(config.tasks.js.src)
 	.pipe(plumber({errorHandler: handleError}))
+	.pipe(sourcemaps.init())
 	.pipe(concat(config.tasks.js.fileName))
 	.pipe(uglify())
 	.pipe(rename({suffix: config.tasks.js.fileSuffix}))
+	.pipe(sourcemaps.write('.'))
 	.pipe(gulp.dest(config.tasks.js.dest));
 });
 
 
 /**
 
-Concatenates & minifies vendor JS
+Concatenates + minifies vendor JS
+& generates sourcemaps
 
 **/
 
 gulp.task('vendor_js', () => {
 	return gulp.src(config.tasks.vendor_js.src)
 	.pipe(plumber({errorHandler: handleError}))
+	.pipe(sourcemaps.init())
 	.pipe(concat(config.tasks.vendor_js.fileName))
 	.pipe(uglify())
 	.pipe(rename({suffix: config.tasks.vendor_js.fileSuffix}))
+	.pipe(sourcemaps.write('.'))
 	.pipe(gulp.dest(config.tasks.vendor_js.dest));
 });
 

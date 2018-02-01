@@ -16,8 +16,8 @@ The boilerplate requires you install the dependencies listed below.
 
 ## Tasks Included
 - sass - Compiles SASS into minified CSS with vendor prefixes
-- js - Concatenates & minifies JS
-- vendor_js - Concatenates & minifies vendor JS
+- js - Concatenates + minifies JS & generates sourcemaps
+- vendor_js - Concatenates + minifies vendor JS & generates sourcemaps
 - img - Compresses imagery
 - static - Moves static files over to the build folder
 - cleanup - Recursively deletes contents of build folder
