@@ -7,10 +7,19 @@ gulp-cssmin will remove all whitespace
 body {
 
 	margin: 0;
-	background: #cf4647;
+	background: #CF4647;
 	font-family: 'Roboto', sans-serif;
 	text-align: center;
 
+}
+
+@keyframes fade-in {
+    from {
+    	opacity: 0;
+    }
+    to {
+    	opacity: 1;
+    }
 }
 
 section {
@@ -18,13 +27,29 @@ section {
 	min-height: 100vh;
 
 	h1 {
+		margin: 0 0 30px 0;
+		width: 100%;
 		font-size: 40px;
 		font-weight: 400;
 		color: #FFF;
+	    animation: fade-in 1.5s;
 		img {
 			max-width: 100px;
 			vertical-align: middle;
 		}
+	}
+
+	a {
+		display: inline-block;
+	    padding: 15px 25px;
+	    font-weight: 600;
+	    text-transform: uppercase;
+	    text-decoration: none;
+	    border: 1px solid #FFF;
+	    border-radius: 3px;
+	    color: #CF4647;
+	    background: #FFF;
+	    animation: fade-in 1.5s;
 	}
 
 }
