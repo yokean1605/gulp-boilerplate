@@ -227,10 +227,11 @@ tasks
 
 **/
 
-gulp.task('watch', () => {
+gulp.task('watch', ['serve'], () => {
 	gulp.watch(config.tasks.sass.src, ['sass']);
 	gulp.watch(config.tasks.js.src, ['js']);
 	gulp.watch(config.tasks.vendor_js.src, ['vendor_js']);
 	gulp.watch(config.tasks.img.src, ['img']);
 	gulp.watch(config.tasks.static.src, ['static']);
+	gulp.watch(config.tasks.static.src).on('change', browserSync.reload);
 });
