@@ -4,9 +4,28 @@ gulp-cssmin will remove all whitespace
 
 **/
 
-.example-one {
+body {
 
-	background: purple;
+	margin: 0;
+	background: #cf4647;
+	font-family: 'Roboto', sans-serif;
+	text-align: center;
+
+}
+
+section {
+
+	min-height: 100vh;
+
+	h1 {
+		font-size: 40px;
+		font-weight: 400;
+		color: #FFF;
+		img {
+			max-width: 100px;
+			vertical-align: middle;
+		}
+	}
 
 }
 
@@ -19,14 +38,20 @@ media queries seen below
 **/
 
 @media(min-width: 768px) {
-	.example-two {
-		color: red;
+	section {
+		h1 {
+			font-size: 60px;
+		}
 	}
 }
 
 @media(min-width: 768px) {
-	.example-two {
-		background: blue;
+	section {
+		h1 {
+			img {
+				max-width: 150px;
+			}
+		}
 	}
 }
 
@@ -39,7 +64,8 @@ the properties below
 
 **/
 
-.example-three {
-    display: flex;
-    transition: all .5s;
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
