@@ -122,7 +122,8 @@ gulp.task('js', () => {
 	.pipe(uglify())
 	.pipe(rename({suffix: config.tasks.js.fileSuffix}))
 	.pipe(sourcemaps.write('.'))
-	.pipe(gulp.dest(config.tasks.js.dest));
+	.pipe(gulp.dest(config.tasks.js.dest))
+	.pipe(browserSync.reload({stream: true}));
 });
 
 
