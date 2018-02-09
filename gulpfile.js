@@ -177,7 +177,8 @@ build folder
 gulp.task('static', () => {
 	return gulp.src(config.tasks.static.src)
 	.pipe(plumber({errorHandler: handleError}))
-	.pipe(gulp.dest(config.tasks.static.dest));
+	.pipe(gulp.dest(config.tasks.static.dest))
+	.pipe(browserSync.reload({stream: true}));
 });
 
 
