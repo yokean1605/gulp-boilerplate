@@ -162,7 +162,8 @@ gulp.task('img', () => {
     	optimizationLevel: 7,
     	verbose: true
     }))
-    .pipe(gulp.dest(config.tasks.img.dest));
+    .pipe(gulp.dest(config.tasks.img.dest))
+    .pipe(browserSync.reload({stream: true}));
 });
 
 
