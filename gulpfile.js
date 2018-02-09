@@ -17,7 +17,8 @@ sourcemaps = require('gulp-sourcemaps'),
 concat = require('gulp-concat'),
 uglify = require('gulp-uglify'),
 imagemin = require('gulp-imagemin'),
-del = require('del');
+del = require('del'),
+browserSync = require('browser-sync');
 
 
 /**
