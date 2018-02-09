@@ -21,6 +21,7 @@ The boilerplate requires you install the dependencies listed below.
 - img - Compresses imagery
 - static - Moves static files over to the build folder
 - cleanup - Recursively deletes contents of build folder
+- serve - Runs server for synchronised browser testing
 
 
 Happy coding! 🤖

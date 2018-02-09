@@ -58,12 +58,15 @@ const config = {
 		},
 		static: {
 			src: [
-				'./src/static/**/*'
+				'./src/static/**/*',
 			],
-			'dest': './dist/static'
+			'dest': './dist'
 		},
 		cleanup: {
 			src: './dist/**/*'
+		},
+		serve: {
+			src: './dist'
 		}
 	}
 }
@@ -184,6 +187,21 @@ Deletes contents of build folder
 gulp.task('cleanup', () => {
     return del(config.tasks.cleanup.src, {force: true});
 });
+
+
+/**
+
+Runs server for synchronised 
+browser testing
+
+**/
+
+gulp.task('serve', function() {
+    browserSync.init({
+        server: config.tasks.serve.src
+    });
+});
+
 
 
 /**
