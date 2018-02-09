@@ -215,7 +215,8 @@ gulp.task('default', [
 	'js',
 	'vendor_js',
 	'img',
-	'static'
+	'static', 
+	'serve'
 ]);
 
 
