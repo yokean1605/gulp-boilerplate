@@ -57,10 +57,14 @@ const config = {
 			dest: './dist/img'
 		},
 		static: {
-			src: [
-				'./src/static/**/*',
-			],
-			'dest': './dist'
+			docs: {
+				src: './src/static/docs/**/*',
+				'dest': './dist/docs'
+			},
+			html: {
+				src: './src/static/pages/**/*.html',
+				'dest': './dist'
+			}
 		},
 		cleanup: {
 			src: './dist/**/*'
@@ -175,10 +179,16 @@ build folder
 **/
 
 gulp.task('static', () => {
-	return gulp.src(config.tasks.static.src)
-	.pipe(plumber({errorHandler: handleError}))
-	.pipe(gulp.dest(config.tasks.static.dest))
-	.pipe(browserSync.reload({stream: true}));
+	Object.keys(config.tasks.static).map((key, index, handleError) => {
+	    var src = config.tasks.static[key].src;
+	    var dest = config.tasks.static[key].dest;
+
+		return gulp.src(src)
+		.pipe(plumber({errorHandler: handleError}))
+		.pipe(gulp.dest(dest));
+	});
+
+	browserSync.reload({stream: true});
 });
 
 
@@ -238,4 +248,8 @@ gulp.task('watch', ['serve'], () => {
 	gulp.watch(config.tasks.vendor_js.src, ['vendor_js']);
 	gulp.watch(config.tasks.img.src, ['img']);
 	gulp.watch(config.tasks.static.src, ['static']);
+	Object.keys(config.tasks.static).map((key, index) => {
+	    var src = config.tasks.static[key].src;
+		gulp.watch(src, ['static']);
+	});
 });
