@@ -106,8 +106,7 @@ gulp.task('sass', () => {
 	.pipe(autoprefixer())
 	.pipe(cssmin())
 	.pipe(rename({suffix: config.tasks.sass.fileSuffix}))
-	.pipe(gulp.dest(config.tasks.sass.dest))
-	.pipe(browserSync.reload({stream: true}));
+	.pipe(gulp.dest(config.tasks.sass.dest));
 });
 
 
@@ -126,8 +125,7 @@ gulp.task('js', () => {
 	.pipe(uglify())
 	.pipe(rename({suffix: config.tasks.js.fileSuffix}))
 	.pipe(sourcemaps.write('.'))
-	.pipe(gulp.dest(config.tasks.js.dest))
-	.pipe(browserSync.reload({stream: true}));
+	.pipe(gulp.dest(config.tasks.js.dest));
 });
 
 
@@ -146,8 +144,7 @@ gulp.task('vendor_js', () => {
 	.pipe(uglify())
 	.pipe(rename({suffix: config.tasks.vendor_js.fileSuffix}))
 	.pipe(sourcemaps.write('.'))
-	.pipe(gulp.dest(config.tasks.vendor_js.dest))
-	.pipe(browserSync.reload({stream: true}));
+	.pipe(gulp.dest(config.tasks.vendor_js.dest));
 });
 
 
@@ -166,8 +163,7 @@ gulp.task('img', () => {
     	optimizationLevel: 7,
     	verbose: true
     }))
-    .pipe(gulp.dest(config.tasks.img.dest))
-    .pipe(browserSync.reload({stream: true}));
+    .pipe(gulp.dest(config.tasks.img.dest));
 });
 
 
@@ -187,8 +183,6 @@ gulp.task('static', () => {
 		.pipe(plumber({errorHandler: handleError}))
 		.pipe(gulp.dest(dest));
 	});
-
-	browserSync.reload({stream: true});
 });
 
 
@@ -213,7 +207,8 @@ browser testing
 
 gulp.task('serve', function() {
     browserSync.init({
-        server: config.tasks.serve.src
+        server: config.tasks.serve.src,
+        injectChanges: true
     });
 });
 
@@ -243,13 +238,12 @@ tasks
 **/
 
 gulp.task('watch', ['serve'], () => {
-	gulp.watch(config.tasks.sass.src, ['sass']);
-	gulp.watch(config.tasks.js.src, ['js']);
-	gulp.watch(config.tasks.vendor_js.src, ['vendor_js']);
-	gulp.watch(config.tasks.img.src, ['img']);
-	gulp.watch(config.tasks.static.src, ['static']);
+	gulp.watch(config.tasks.sass.src, ['sass']).on('change', browserSync.reload);
+	gulp.watch(config.tasks.js.src, ['js']).on('change', browserSync.reload);
+	gulp.watch(config.tasks.vendor_js.src, ['vendor_js']).on('change', browserSync.reload);
+	gulp.watch(config.tasks.img.src, ['img']).on('change', browserSync.reload);
 	Object.keys(config.tasks.static).map((key, index) => {
 	    var src = config.tasks.static[key].src;
-		gulp.watch(src, ['static']);
+		gulp.watch(src, ['static']).on('change', browserSync.reload);
 	});
 });
