@@ -15,7 +15,7 @@ The boilerplate requires you install the dependencies listed below.
 4. `gulp` or `gulp watch`
 
 ## Tasks Included
-- sass - Compiles SASS into minified CSS with vendor prefixes
+- sass - Compiles SASS into minified CSS with vendor prefixes & generates sourcemaps
 - js - Concatenates + minifies JS & generates sourcemaps
 - vendor_js - Concatenates + minifies vendor JS & generates sourcemaps
 - img - Compresses imagery

@@ -11,7 +11,7 @@ plumber = require('gulp-plumber'),
 notify = require('gulp-notify'),
 sass = require('gulp-sass'),
 autoprefixer = require('gulp-autoprefixer'),
-cssmin = require('gulp-cssmin'),
+mincss = require('gulp-minify-css'),
 rename = require('gulp-rename'),
 sourcemaps = require('gulp-sourcemaps'),
 concat = require('gulp-concat'),
@@ -95,17 +95,20 @@ const handleError = function(err) {
 
 /**
 
-Compiles SASS to minified CSS with vendor prefixes
+Compiles SASS to minified CSS 
+with vendor prefixes & generates sourcemaps
 
 **/
 
 gulp.task('sass', () => {
 	return gulp.src(config.tasks.sass.src)
 	.pipe(plumber({errorHandler: handleError}))
+	.pipe(sourcemaps.init())
 	.pipe(sass())
 	.pipe(autoprefixer())
-	.pipe(cssmin())
+	.pipe(mincss())
 	.pipe(rename({suffix: config.tasks.sass.fileSuffix}))
+	.pipe(sourcemaps.write())
 	.pipe(gulp.dest(config.tasks.sass.dest));
 });
 
