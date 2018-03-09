@@ -1,0 +1,6 @@
+/**
+
+This file will be moved
+to the build folder
+
+**/
